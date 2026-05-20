@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth; /* Hace que el menú navegue suavemente */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -69,7 +69,7 @@
 
         /* SECCIONES CONTENEDORAS */
         section {
-            padding: 100px 8% 60px 8%;
+            padding: 120px 8% 60px 8%;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -129,6 +129,36 @@
             transform: scale(1.05);
         }
 
+        /* LAS 3 COLUMNAS DE VALORES ORIGINALES */
+        .valores-tres-columnas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .columna-valor {
+            background-color: #12071f;
+            border: 1px solid #2e164d;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .columna-valor h3 {
+            color: #f4c20d;
+            margin-bottom: 15px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .columna-valor p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
         /* MAQUETACIÓN DE CONTENIDO (FOTO + TEXTO) */
         .content-grid {
             display: grid;
@@ -152,6 +182,9 @@
 
         .content-image img {
             width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border: 2px solid #2e164d;
@@ -177,7 +210,7 @@
             margin: 15px 0;
         }
 
-        /* SECCIÓN 3: MOTOGP (Dedicada y Explicada) */
+        /* SECCIÓN 3: MOTOGP */
         #motogp {
             background-color: #0b0b0e;
             border-top: 1px solid #1a0b2e;
@@ -206,11 +239,12 @@
             border-top: 1px solid #1a0b2e;
         }
 
-        /* RESPONSIVE (Para móviles) */
+        /* RESPONSIVE (Móviles) */
         @media (max-width: 768px) {
             nav { flex-direction: column; padding: 15px; }
             nav ul { margin-top: 15px; }
             nav ul li { margin: 0 10px; }
+            .valores-tres-columnas { grid-template-columns: 1fr; }
             .content-grid { grid-template-columns: 1fr; }
             #inicio h1 { font-size: 36px; }
         }
@@ -232,6 +266,21 @@
         <h1>RECÁRGATE <span>SIN DEJAR HUELLA</span></h1>
         <p class="section-subtitle">La primera bebida energética sostenible nacida para la alta competición y el cuidado del planeta.</p>
         <a href="#tienda" class="btn-principal">Explorar Productos</a>
+
+        <div class="valores-tres-columnas">
+            <div class="columna-valor">
+                <h3>⚡ Energía Técnica</h3>
+                <p>Fórmula limpia con guaraná, ginseng y electrolitos para mantener el rendimiento deportivo y diario al máximo nivel.</p>
+            </div>
+            <div class="columna-valor">
+                <h3>🌱 Residuo Cero</h3>
+                <p>Nuestras latas de aluminio son infinitamente reciclables. Te ayudamos a devolverlas en nuestros stands dedicados.</p>
+            </div>
+            <div class="columna-valor">
+                <h3>🏍️ Espíritu de Carrera</h3>
+                <p>Probado al límite absoluto en los circuitos más exigentes de MotoGP y con soporte directo en MotorLand Aragón.</p>
+            </div>
+        </div>
     </section>
 
     <section id="tienda">
@@ -240,14 +289,14 @@
         
         <div class="content-grid">
             <div class="content-image">
-                <img src="https://googleusercontent.com/image_generation_content/181" alt="Nebula Energy Pack">
+                <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&q=80&w=800" alt="Nebula Energy Concept">
             </div>
             <div class="product-card">
                 <h3>Nebula Aurora Summer - Pack de 4</h3>
-                <p style="color: #94a3b8; margin-top: 10px;">Edición Limitada de 550ml optimizada con guaraná, ginseng y electrolitos para mantener el foco en la pista y en el día a día.</p>
+                <p style="color: #94a3b8; margin-top: 10px;">Edición Limitada de 550ml optimizada con ingredientes limpios para mantener el foco en la pista y en tu día a día.</p>
                 <div class="product-price">11,95 €</div>
                 <p style="color: #22c55e; font-size: 14px; font-weight: bold; margin-bottom: 15px;">✓ ¡Usa el código de tu email para un 20% de descuento!</p>
-                <a href="#" class="btn-principal" style="font-size: 15px; padding: 12px 30px;" onclick="alert('¡Cupón del 20% Añadido Automáticamente! Redirigiendo a la pasarela de pago segura...')">Añadir al carrito</a>
+                <a href="#" class="btn-principal" style="font-size: 15px; padding: 12px 30px;" onclick="alert('¡Cupón del 20% Añadido Automáticamente!')">Añadir al carrito</a>
             </div>
         </div>
     </section>
@@ -264,11 +313,11 @@
                 <p>En cada curva de circuitos de primer nivel como <strong>MotorLand Aragón</strong>, nuestro equipo técnico y pilotos demuestran que la máxima potencia e intensidad pueden ir de la mano con los valores de un mañana limpio.</p>
                 
                 <div class="highlight-box">
-                    <strong>Energía en las Gradas:</strong> Durante el Gran Premio, no dejes de buscar a nuestro equipo de distribución. Estarán moviéndose por todas las gradas equipados con la mochila-lata oficial Nebula y vendiendo latas frías al instante para que no te pierdas ni un segundo de la carrera.
+                    <strong>Energía en las Gradas:</strong> Durante el Gran Premio, no dejes de buscar a nuestro equipo de distribución. Estarán moviéndose por todas las gradas equipados con la mochila-lata oficial Nebula y vendiendo latas frías al instante.
                 </div>
             </div>
             <div class="content-image">
-                <img src="https://googleusercontent.com/image_generation_content/177" alt="Moto Oficial Nebula Energy">
+                <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800" alt="Moto Oficial Racing">
             </div>
         </div>
     </section>
@@ -279,16 +328,16 @@
         
         <div class="content-grid">
             <div class="content-image">
-                <img src="https://googleusercontent.com/image_generation_content/178" alt="Punto Nebula Reciclaje">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800" alt="Punto Reciclaje Sostenible">
             </div>
             <div class="content-text">
                 <h3>¿Qué es un Punto Nebula?</h3>
                 <p>Ubicados de manera estratégica en festivales, eventos urbanos y en los accesos principales de circuitos de carreras, los stands <strong>Punto Nebula</strong> son el pilar de nuestra filosofía ecológica.</p>
                 
-                <p>No queremos generar más desperdicio. Por eso, invitamos a todos nuestros consumidores a traer sus latas vacías de formato 550ml tras terminar su bebida. Aquí las clasificamos inmediatamente:</p>
+                <p>No queremos generar más desperdicio. Por eso, invitamos a todos nuestros consumidores a traer sus latas vacías tras terminar su bebida. Aquí las clasificamos inmediatamente:</p>
                 
                 <p style="margin-left: 20px; font-size: 15px;">⚡ <strong>Línea de Reutilización Activa:</strong> Las latas en perfecto estado se seleccionan para ser higienizadas y reintroducidas en la cadena de envasado.</p>
-                <p style="margin-left: 20px; font-size: 15px; margin-top: 10px;">♻️ <strong>Reciclaje Completo de Aluminio:</strong> El resto se procesa para fundición de aluminio limpio, logrando un impacto de huella de carbono cero.</p>
+                <p style="margin-left: 20px; font-size: 15px; margin-top: 10px;">♻️ <strong>Reciclaje Completo:</strong> El resto se procesa para fundición de aluminio limpio, logrando un impacto de huella de carbono cero.</p>
             </div>
         </div>
     </section>
