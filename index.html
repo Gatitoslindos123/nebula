@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nebula Energy | Recárgate sin dejar huella</title>
+    <title>Nebula Energy | Oficial</title>
     <style>
-        /* ESTILOS GENERALES (Identidad Nebula: Negro, Morado y Amarillo) */
+        /* CONFIGURACIÓN BASE Y COLORES CORPORATIVOS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth; /* Hace que el menú navegue suavemente */
         }
 
         body {
@@ -18,19 +19,24 @@
             color: #ffffff;
         }
 
-        /* BARRA DE NAVEGACIÓN */
+        /* BARRA DE NAVEGACIÓN FIJA */
         nav {
-            background-color: #1a0b2e;
-            padding: 20px 50px;
+            background-color: rgba(26, 11, 46, 0.95);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid #f4c20d;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 26px;
+            font-weight: 900;
             color: #f4c20d;
             letter-spacing: 2px;
         }
@@ -45,13 +51,15 @@
         }
 
         nav ul li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
 
         nav ul li a {
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
             transition: 0.3s;
         }
 
@@ -59,97 +67,152 @@
             color: #f4c20d;
         }
 
-        /* SECCIÓN HERO (PRINCIPAL) */
-        .hero {
-            height: 85vh;
+        /* SECCIONES CONTENEDORAS */
+        section {
+            padding: 100px 8% 60px 8%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #150824 0%, #05020a 100%);
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
         }
 
-        /* Efecto de luces de fondo simulando la Nebula */
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(168, 85, 247, 0.2);
-            filter: blur(100px);
-            top: 20%;
-            left: 20%;
-            border-radius: 50%;
-        }
-
-        .hero h1 {
-            font-size: 64px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 10px;
+        .section-title {
+            font-size: 36px;
             text-transform: uppercase;
+            color: #f4c20d;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
-        .hero h1 span {
+        .section-subtitle {
+            font-size: 18px;
+            color: #cbd5e1;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* SECCIÓN 1: INICIO (HERO) */
+        #inicio {
+            background: linear-gradient(135deg, #150824 0%, #05020a 100%);
+            text-align: center;
+            align-items: center;
+        }
+
+        #inicio h1 {
+            font-size: 55px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        #inicio h1 span {
             color: #f4c20d;
         }
 
-        .hero p {
-            font-size: 22px;
-            color: #cbd5e1;
-            margin-bottom: 35px;
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
-        /* BOTÓN DE COMPRA */
-        .btn-comprar {
+        .btn-principal {
             background-color: #f4c20d;
             color: #000000;
-            padding: 15px 40px;
-            font-size: 20px;
+            padding: 16px 45px;
+            font-size: 18px;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
             text-transform: uppercase;
-            box-shadow: 0px 0px 20px rgba(244, 194, 13, 0.4);
+            box-shadow: 0px 0px 25px rgba(244, 194, 13, 0.4);
             transition: 0.3s;
+            margin-top: 20px;
         }
 
-        .btn-comprar:hover {
+        .btn-principal:hover {
             background-color: #ffffff;
-            box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.6);
+            box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
             transform: scale(1.05);
         }
 
-        /* SECCIÓN VALORES CORTO */
-        .valores {
-            display: flex;
-            justify-content: space-around;
-            background-color: #12071f;
-            padding: 40px 20px;
-            border-top: 1px solid #2e164d;
+        /* MAQUETACIÓN DE CONTENIDO (FOTO + TEXTO) */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        .valor-card {
-            text-align: center;
-            max-width: 300px;
+        .content-text h3 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 15px;
         }
 
-        .valor-card h3 {
-            color: #f4c20d;
-            margin-bottom: 10px;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-
-        .valor-card p {
+        .content-text p {
             color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #2e164d;
+        }
+
+        /* SECCIÓN 2: TIENDA */
+        #tienda {
+            background-color: #0e0e12;
+        }
+
+        .product-card {
+            background-color: #160d26;
+            border: 1px solid #3b1d66;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #f4c20d;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* SECCIÓN 3: MOTOGP (Dedicada y Explicada) */
+        #motogp {
+            background-color: #0b0b0e;
+            border-top: 1px solid #1a0b2e;
+        }
+
+        .highlight-box {
+            background: rgba(168, 85, 247, 0.1);
+            border-left: 4px solid #a855f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* SECCIÓN 4: PUNTOS NEBULA */
+        #puntos {
+            background-color: #11091f;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #05020a;
+            padding: 30px;
+            text-align: center;
+            color: #475569;
             font-size: 14px;
+            border-top: 1px solid #1a0b2e;
+        }
+
+        /* RESPONSIVE (Para móviles) */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px; }
+            nav ul { margin-top: 15px; }
+            nav ul li { margin: 0 10px; }
+            .content-grid { grid-template-columns: 1fr; }
+            #inicio h1 { font-size: 36px; }
         }
     </style>
 </head>
@@ -158,33 +221,30 @@
     <nav>
         <div class="logo">NEBULA<span>ENERGY</span></div>
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Tienda</a></li>
-            <li><a href="#">Puntos Nebula</a></li>
-            <li><a href="#">MotoGP</a></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#tienda">Tienda</a></li>
+            <li><a href="#motogp">MotoGP</a></li>
+            <li><a href="#puntos">Puntos Nebula</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
-        <h1>¡Tu Aurora <span>Te Espera!</span></h1>
-        <p>Recárgate sin dejar huella</p>
-        <a href="#" class="btn-comprar" onclick="alert('¡Cupón del 20% Aplicado! Redirigiendo a pasarela Nebula...')">Comprar Ahora</a>
+    <section id="inicio">
+        <h1>RECÁRGATE <span>SIN DEJAR HUELLA</span></h1>
+        <p class="section-subtitle">La primera bebida energética sostenible nacida para la alta competición y el cuidado del planeta.</p>
+        <a href="#tienda" class="btn-principal">Explorar Productos</a>
     </section>
 
-    <section class="valores">
-        <div class="valor-card">
-            <h3>⚡ Energía Técnica</h3>
-            <p>Fórmula limpia con guaraná, ginseng y electrolitos para el máximo rendimiento.</p>
-        </div>
-        <div class="valor-card">
-            <h3>🌱 Residuo Cero</h3>
-            <p>Latas de aluminio infinitamente reciclables. Devuélvelas en nuestros Puntos Nebula.</p>
-        </div>
-        <div class="valor-card">
-            <h3>🏍️ Espíritu de Carrera</h3>
-            <p>Probado al límite en los circuitos más exigentes de MotoGP y MotorLand Aragón.</p>
-        </div>
-    </section>
-
-</body>
-</html>
+    <section id="tienda">
+        <h2 class="section-title">Tienda Oficial</h2>
+        <p class="section-subtitle">Compra tu energía limpia directamente desde nuestra fábrica.</p>
+        
+        <div class="content-grid">
+            <div class="content-image">
+                <img src="https://googleusercontent.com/image_generation_content/181" alt="Nebula Energy Pack">
+            </div>
+            <div class="product-card">
+                <h3>Nebula Aurora Summer - Pack de 4</h3>
+                <p style="color: #94a3b8; margin-top: 10px;">Edición Limitada de 550ml optimizada con guaraná, ginseng y electrolitos para mantener el foco en la pista y en el día a día.</p>
+                <div class="product-price">11,95 €</div>
+                <p style="color: #22c55e; font-size: 14px; font-weight: bold; margin-bottom: 15px;">✓ ¡Usa el código de tu email para un 20% de descuento!</p>
+                <a href="#" class="
